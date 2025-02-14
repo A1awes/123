@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoodleHouse - Authentic Asian Noodles</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">NoodleHouse</div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#delivery">Delivery</a>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Contact</a>
+                <button class="btn-primary">Order Now</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to NoodleHouse</h1>
+            <p>Experience authentic Asian noodles delivered right to your door. Made with fresh ingredients and traditional recipes.</p>
+            <div class="search-bar">
+                <input type="text" id="address" placeholder="Enter delivery address">
+                <button class="btn-primary">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose NoodleHouse</h2>
+        <div class="container features-grid">
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&q=80" alt="Fresh Noodles">
+                <h3>Authentic Recipes</h3>
+                <p>Traditional recipes passed down through generations</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&q=80" alt="Quick Delivery">
+                <h3>Fast Delivery</h3>
+                <p>Hot and fresh noodles delivered to your door</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80" alt="Quality Ingredients">
+                <h3>Fresh Ingredients</h3>
+                <p>Only the finest ingredients in every dish</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Our Popular Dishes</h2>
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>NoodleHouse</h3>
+                    <p>Authentic Asian noodles delivered to your door</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>123 Noodle Street</p>
+                    <p>San Francisco, CA 94110</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NoodleHouse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
