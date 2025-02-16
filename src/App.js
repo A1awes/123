@@ -1,29 +1,13 @@
 import React, { useState } from 'react';
-import { MapPin, Search, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Twitter } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Contact from './Contact';
 
 function App() {
   const [address, setAddress] = useState('');
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center">
-            <span className="text-xl font-bold">NoodleHouse</span>
-          </div>
-          <nav className="hidden md:flex items-center space-x-6">
-            <a href="#home" className="text-gray-700 hover:text-black">Home</a>
-            <a href="#delivery" className="text-gray-700 hover:text-black">Delivery</a>
-            <a href="#menu" className="text-gray-700 hover:text-black">Menu</a>
-            <a href="#contact" className="text-gray-700 hover:text-black">Contact</a>
-            <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
-              Order Now
-            </button>
-          </nav>
-        </div>
-      </header>
-
+  const HomePage = () => (
+    <>
       {/* Hero Section */}
       <section id="home" className="pt-20 relative">
         <div className="h-[600px] relative">
@@ -37,18 +21,9 @@ function App() {
             <p className="text-xl mb-8 text-center max-w-2xl">
               Experience authentic Asian noodles delivered right to your door. Made with fresh ingredients and traditional recipes.
             </p>
-            <div className="flex w-full max-w-md relative">
-              <input
-                type="text"
-                placeholder="Enter delivery address"
-                className="w-full px-4 py-3 rounded-l-md text-black"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
-              <button className="bg-black text-white px-6 py-3 rounded-r-md hover:bg-gray-800 flex items-center">
-                <Search className="w-5 h-5" />
-              </button>
-            </div>
+            <button className="bg-black text-white px-8 py-4 rounded-md hover:bg-gray-800 text-lg font-semibold transition-all transform hover:scale-105">
+              Create Custom Ramen
+            </button>
           </div>
         </div>
       </section>
@@ -130,68 +105,71 @@ function App() {
           </div>
         </div>
       </section>
+    </>
+  );
 
-      {/* Contact Section */}
-      <section id="contact" className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <form className="space-y-6">
-              <div>
-                <label className="block text-gray-700 mb-2">Name</label>
-                <input type="text" className="w-full px-4 py-2 border rounded-md" />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Email</label>
-                <input type="email" className="w-full px-4 py-2 border rounded-md" />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Message</label>
-                <textarea className="w-full px-4 py-2 border rounded-md h-32"></textarea>
-              </div>
-              <button className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 w-full">
-                Send Message
+  return (
+    <Router>
+      <div className="min-h-screen bg-white">
+        {/* Header */}
+        <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
+          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="flex items-center">
+              <Link to="/" className="text-xl font-bold">NoodleHouse</Link>
+            </div>
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link to="/" className="text-gray-700 hover:text-black">Home</Link>
+              <Link to="/delivery" className="text-gray-700 hover:text-black">Delivery</Link>
+              <Link to="/menu" className="text-gray-700 hover:text-black">Menu</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-black">Contact</Link>
+              <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">
+                Order Now
               </button>
-            </form>
+            </nav>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* Footer */}
-      <footer className="bg-black text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">NoodleHouse</h3>
-              <p className="text-gray-400">Authentic Asian noodles delivered to your door</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contact</h3>
-              <p className="text-gray-400">123 Noodle Street</p>
-              <p className="text-gray-400">San Francisco, CA 94110</p>
-              <p className="text-gray-400">Phone: (555) 123-4567</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <Facebook className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  <Twitter className="w-6 h-6" />
-                </a>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+
+        {/* Footer */}
+        <footer className="bg-black text-white py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="text-xl font-bold mb-4">NoodleHouse</h3>
+                <p className="text-gray-400">Authentic Asian noodles delivered to your door</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-4">Contact</h3>
+                <p className="text-gray-400">123 Noodle Street</p>
+                <p className="text-gray-400">San Francisco, CA 94110</p>
+                <p className="text-gray-400">Phone: (555) 123-4567</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-4">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <a href="#" className="text-gray-400 hover:text-white">
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-white">
+                    <Facebook className="w-6 h-6" />
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-white">
+                    <Twitter className="w-6 h-6" />
+                  </a>
+                </div>
               </div>
             </div>
+            <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+              <p>&copy; 2025 NoodleHouse. All rights reserved.</p>
+            </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 NoodleHouse. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
